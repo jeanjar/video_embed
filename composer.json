@@ -1,0 +1,22 @@
+{
+    "name": "jeanjar/video_embed",
+    "description": "A simple video embed for YouTube and Vimeo",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jean Jar Pereira de Araújo",
+            "email": "jeanjpa@gmail.com"
+        }
+    ],
+    "require": {
+        "php" : ">=5.4.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "5.5.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "VideoEmbed\\": "src/"
+        }
+    }
+}
