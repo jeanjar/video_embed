@@ -2,18 +2,16 @@
 
 namespace VideoEmbed\Providers;
 
-use VideoEmbed\VideoEmbed;
-
 class Youtube
 {
     public static function render($url, $params = array())
     {
         $parsed = parse_url($url);
-        if (VideoEmbed::f($parsed, 'host') == 'youtu.be')
+        if (f($parsed, 'host') == 'youtu.be')
         {
-            $embed = str_replace('/', '', VideoEmbed::f($parsed, 'path'));
+            $embed = str_replace('/', '', f($parsed, 'path'));
         }
-        elseif (in_array(VideoEmbed::f($parsed, 'host'), array('youtube.com', 'www.youtube.com')))
+        elseif (in_array(f($parsed, 'host'), array('youtube.com', 'www.youtube.com')))
         {
             $query = explode('&', $parsed['query']);
             $id = false;
@@ -36,12 +34,12 @@ class Youtube
             return false;
         }
 
-        if (VideoEmbed::f($params, 'return_id'))
+        if (f($params, 'return_id'))
         {
             return $embed;
         }
 
-        return '<iframe width="' . VideoEmbed::f($params, 'width') . '" height="' . VideoEmbed::f($params, 'height') . '" src="//www.youtube.com/embed/' . $embed . '" frameborder="0" allowfullscreen></iframe>';
+        return '<iframe width="' . f($params, 'width') . '" height="' . f($params, 'height') . '" src="//www.youtube.com/embed/' . $embed . '" frameborder="0" allowfullscreen></iframe>';
     }
 
 }

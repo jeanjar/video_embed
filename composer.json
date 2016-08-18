@@ -17,6 +17,9 @@
     "autoload": {
         "psr-4": {
             "VideoEmbed\\": "src/"
-        }
+        },
+        "files": [
+            "src/Support/helper.php"
+        ]
     }
 }

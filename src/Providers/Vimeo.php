@@ -12,7 +12,7 @@ class Vimeo
         $id = end($query);
         $realParams = '';
 
-        if(VideoEmbed::f($params, 'return_id'))
+        if(f($params, 'return_id'))
         {
             return $id;
         }
