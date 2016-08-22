@@ -6,7 +6,7 @@ class Youtube
 {
     public static function render($url, $params = array())
     {
-        $parsed = parse_url($url);
+        $parsed = parse_url(trim($url));
         if (f($parsed, 'host') == 'youtu.be')
         {
             $embed = str_replace('/', '', f($parsed, 'path'));

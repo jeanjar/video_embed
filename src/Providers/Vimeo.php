@@ -8,7 +8,7 @@ class Vimeo
 {
     public static function render($url, $params = [])
     {
-        $query = explode('/', $url);
+        $query = explode('/', trim($url));
         $id = end($query);
         $realParams = '';
 
