@@ -30,7 +30,7 @@ class VimeoGetIdTeste extends \PHPUnit_Framework_TestCase
     public function testeThumbNail()
     {
         $id = VideoEmbed::render('https://www.youtube.com/watch?v=bLLxXZoqq_Y', ['return_thumbnail' => true]);
-        $this->assertEquals('http://img.youtube.com/vi/bLLxXZoqq_Y/maxresdefault.jpg', $id);
+        $this->assertEquals('http://img.youtube.com/vi/bLLxXZoqq_Y/hqdefault.jpg', $id);
 
         //ainda não sei como testar o video...
         //$id = VideoEmbed::render('https://vimeo.com/18758609', ['return_thumbnail' => true]);
