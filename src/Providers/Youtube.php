@@ -4,6 +4,12 @@ namespace VideoEmbed\Providers;
 
 class Youtube
 {
+
+    public static function getSimpleThumbnail($id)
+    {
+        return sprintf('http://img.youtube.com/vi/%s/maxresdefault.jpg', $id);
+    }
+
     public static function render($url, $params = array())
     {
         $parsed = parse_url(trim($url));
@@ -37,6 +43,11 @@ class Youtube
         if (f($params, 'return_id'))
         {
             return $embed;
+        }
+
+        if(f($params, 'return_thumbnail'))
+        {
+            return self::getSimpleThumbnail($embed);
         }
 
         return '<iframe width="' . f($params, 'width') . '" height="' . f($params, 'height') . '" src="//www.youtube.com/embed/' . $embed . '" frameborder="0" allowfullscreen></iframe>';
