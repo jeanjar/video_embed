@@ -15,3 +15,19 @@ if (!function_exists('f'))
         return filter_input($type, $variable_name, $filter, $options);
     }
 }
+
+if(!function_exists('getProtocol'))
+{
+    function getProtocol()
+    {
+        $protocol = 'http';
+        if(f($_SERVER, 'HTTPS') and f($_SERVER, 'HTTPS') == 'on' and
+            f($_SERVER, 'SERVER_PORT') and f($_SERVER,'SERVER_PORT') == '443'
+        )
+        {
+            $protocol .= 's';
+        }
+
+        return $protocol;
+    }
+}

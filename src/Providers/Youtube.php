@@ -7,7 +7,8 @@ class Youtube
 
     public static function getSimpleThumbnail($id)
     {
-        return sprintf('http://img.youtube.com/vi/%s/hqdefault.jpg', $id);
+        $protocol = getProtocol();
+        return sprintf('%s://img.youtube.com/vi/%s/hqdefault.jpg', $protocol, $id);
     }
 
     public static function render($url, $params = array())

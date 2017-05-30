@@ -9,12 +9,14 @@ class Vimeo
 
     public static function getSimpleThumbnail($id)
     {
-        $data = json_decode(file_get_contents(sprintf('https://vimeo.com/api/v2/video/%s.json', $id)), true);
+        $protocol = getProtocol();
+        $data = json_decode(file_get_contents(sprintf('%s://vimeo.com/api/v2/video/%s.json', $protocol, $id)), true);
         return f($data, 'thumbnail_large');
     }
 
     public static function render($url, $params = [])
     {
+        $protocol = getProtocol();
         $query = explode('/', trim($url));
         $id = end($query);
         $realParams = '';
@@ -43,6 +45,6 @@ class Vimeo
                 }
             }
         }
-        return '<iframe src="//player.vimeo.com/video/' . $id . '"' . $realParams . '></iframe>';
+        return '<iframe src="' . $protocol . '://player.vimeo.com/video/' . $id . '"' . $realParams . '></iframe>';
     }
 }
